@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footprint from "../assets/resume.jpg";
-import Footer from "./footer";
+import Footer from "./Footer"; 
+
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 
 export default function HeroPage() {
