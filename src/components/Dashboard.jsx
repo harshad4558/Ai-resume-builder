@@ -8,7 +8,7 @@ import { EducationForm } from './EducationForm';
 import { SkillsForm } from './SkillsForm';
 import { ResumePreview } from './ResumePreview';
 import { AIAssistant } from './AIAssistant';
-import ResumeTemplates from "./ResumeTemplates";
+import{ ResumeTemplates} from "./resumeTemplates";
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
