@@ -8,7 +8,8 @@ import { EducationForm } from './EducationForm';
 import { SkillsForm } from './SkillsForm';
 import { ResumePreview } from './ResumePreview';
 import { AIAssistant } from './AIAssistant';
-import { ResumeTemplates } from './ResumeTemplates';
+import ResumeTemplates from "./ResumeTemplates";
+
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
