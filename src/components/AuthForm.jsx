@@ -21,31 +21,38 @@ export default function AuthForm({ type }) {
     e.preventDefault();
     setLoading(true);
     setError("");
-    
+
     // Dynamically decide the endpoint based on the form type
     const endpoint = type === "signup" ? "signup" : "login";
-    
+
     // Only send email and password for login
-    const dataToSend = type === "signup" 
-      ? formData 
-      : { 
-          email: formData.email, 
-          password: formData.password 
-        };
+    const dataToSend =
+      type === "signup"
+        ? formData
+        : {
+            email: formData.email,
+            password: formData.password,
+          };
 
     try {
-      // const res = await fetch(`http://localhost:8080/api/auth/${endpoint}`
-        const res = await fetch("https://ai-resume-builder-backend-3qrk.onrender.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataToSend),
-      });
+      const res = await fetch(
+        `https://ai-resume-builder-backend-3qrk.onrender.com/api/auth/${endpoint}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dataToSend),
+        }
+      );
+
       const data = await res.json();
       setLoading(false);
-      if (!res.ok) return setError(data.message); // Handle error response
 
+      if (!res.ok) return setError(data.message || "Something went wrong");
+
+      // Assuming the token is in data.data
       localStorage.setItem("token", data.data);
-      navigate("/dashboard"); // Redirect on successful login/signup
+
+      navigate("/dashboard"); // Redirect on success
     } catch (err) {
       setLoading(false);
       setError("Something went wrong. Try again.");
@@ -69,7 +76,9 @@ export default function AuthForm({ type }) {
                     type="text"
                     placeholder="First Name"
                     value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, firstName: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -79,7 +88,9 @@ export default function AuthForm({ type }) {
                     type="text"
                     placeholder="Last Name"
                     value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lastName: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -92,7 +103,9 @@ export default function AuthForm({ type }) {
                 type="email"
                 placeholder="you@example.com"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
               />
             </div>
@@ -102,20 +115,31 @@ export default function AuthForm({ type }) {
                 type="password"
                 placeholder="••••••••"
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 required
               />
             </div>
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
+
             <Button className="w-full" disabled={loading} type="submit">
-              {loading ? "Loading..." : type === "signup" ? "Sign Up" : "Sign In"}
+              {loading
+                ? "Loading..."
+                : type === "signup"
+                ? "Sign Up"
+                : "Sign In"}
             </Button>
+
             <p className="text-sm text-center mt-2">
               {type === "signup"
                 ? "Already have an account?"
                 : "Don't have an account?"}{" "}
-              <Link className="text-blue-600 underline" to={type === "signup" ? "/signin" : "/signup"}>
+              <Link
+                className="text-blue-600 underline"
+                to={type === "signup" ? "/signin" : "/signup"}
+              >
                 {type === "signup" ? "Sign In" : "Sign Up"}
               </Link>
             </p>
