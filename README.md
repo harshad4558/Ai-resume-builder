@@ -20,12 +20,7 @@ An AI-powered resume builder built with **React** (frontend), **Tailwind CSS** (
 - Axios
 
 ### Backend
-- Node.js
 - Express.js
 - MongoDB (via Mongoose)
 - OpenAI API (for AI features)
-
----
-    
-## 📁 Project Structure
 
