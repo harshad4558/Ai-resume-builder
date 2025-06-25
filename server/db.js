@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports = async () => {
     try {
         // Log the connection string (but mask any credentials)
-        const connectionString = process.env.DB;
+        const connectionString = :"mongodb+srv://harsh080603:<db_password>@cluster0.qguh4ei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
         console.log('Connecting to MongoDB at:', 
             connectionString ? 
             connectionString.replace(/:\/\/([^:]+:[^@]+)@/, '://***:***@') : 
