@@ -22,10 +22,8 @@ export default function AuthForm({ type }) {
     setLoading(true);
     setError("");
 
-    // Dynamically decide the endpoint based on the form type
     const endpoint = type === "signup" ? "signup" : "login";
 
-    // Only send email and password for login
     const dataToSend =
       type === "signup"
         ? formData
@@ -36,9 +34,7 @@ export default function AuthForm({ type }) {
 
     try {
       const res = await fetch(
-        const res = await fetch(
-          `https://ai-resume-builder-xiqr.onrender.com/api/auth/${endpoint}`,
-
+        `https://ai-resume-builder-xiqr.onrender.com/api/auth/${endpoint}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -51,10 +47,8 @@ export default function AuthForm({ type }) {
 
       if (!res.ok) return setError(data.message || "Something went wrong");
 
-      // Assuming the token is in data.data
       localStorage.setItem("token", data.data);
-
-      navigate("/dashboard"); // Redirect on success
+      navigate("/dashboard");
     } catch (err) {
       setLoading(false);
       setError("Something went wrong. Try again.");
