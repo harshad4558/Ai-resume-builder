@@ -57,15 +57,16 @@ export default function AuthForm({ type }) {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-100 to-purple-100">
-      <Card className="w-[400px] p-6 shadow-lg rounded-2xl">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 px-4">
+      <Card className="w-full max-w-md p-6 shadow-lg rounded-2xl bg-white">
         <CardContent>
           <h2 className="text-2xl font-bold text-center mb-6 capitalize text-blue-700">
             {type === "signup" ? "Create Account" : "Welcome Back"}
           </h2>
+
           <form onSubmit={handleSubmit} className="space-y-4">
             {type === "signup" && (
-              <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label>First Name</Label>
                   <Input
@@ -90,7 +91,7 @@ export default function AuthForm({ type }) {
                     required
                   />
                 </div>
-              </>
+              </div>
             )}
 
             <div>
@@ -105,6 +106,7 @@ export default function AuthForm({ type }) {
                 required
               />
             </div>
+
             <div>
               <Label>Password</Label>
               <Input
@@ -128,7 +130,7 @@ export default function AuthForm({ type }) {
                 : "Sign In"}
             </Button>
 
-            <p className="text-sm text-center mt-2">
+            <p className="text-sm text-center mt-3">
               {type === "signup"
                 ? "Already have an account?"
                 : "Don't have an account?"}{" "}
