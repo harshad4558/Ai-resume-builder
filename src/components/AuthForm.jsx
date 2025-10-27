@@ -36,7 +36,9 @@ export default function AuthForm({ type }) {
 
     try {
       const res = await fetch(
-        `https://ai-resume-builder-backend-3qrk.onrender.com/api/auth/${endpoint}`,
+        const res = await fetch(
+          `https://ai-resume-builder-xiqr.onrender.com/api/auth/${endpoint}`,
+
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
