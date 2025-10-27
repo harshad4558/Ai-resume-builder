@@ -208,7 +208,7 @@ ${resumeData.skills.join(', ')}
               </CardHeader>
               <CardContent className="pt-6">
                 <Tabs value={currentTab} onValueChange={setCurrentTab} className="w-full">
-                  <TabsList className="grid grid-cols-5 mb-6">
+                  <TabsList className="flex flex-wrap md:grid md:grid-cols-5 gap-2 overflow-x-auto mb-6 hide-scrollbar">
                     <TabsTrigger value="personal" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
                       Personal
                     </TabsTrigger>
