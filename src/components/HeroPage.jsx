@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footprint from "../assets/resume.jpg";
-import Footer from "./Footer"; 
 import Footer from "./Footer";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 
@@ -36,15 +35,15 @@ export default function HeroPage() {
           <div className="inline-block px-4 py-1 bg-blue-100 rounded-full mb-4">
             <span className="text-blue-700 font-medium text-sm">Resume Builder v2.0</span>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold text-blue-800 leading-tight">
             Build Your <span className="text-purple-600">Dream Resume</span> Effortlessly
           </h1>
-          
+
           <p className="text-gray-700 text-lg md:pr-10">
             Use AI to create stunning, professional resumes in minutes. Stand out, get noticed, and land your dream job with ease.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/signup">
               <Button className="w-full sm:w-auto px-6 py-3 text-lg bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center gap-2">
@@ -52,23 +51,29 @@ export default function HeroPage() {
               </Button>
             </Link>
             <Link to="/signin">
-              <Button variant="outline" className="w-full sm:w-auto px-6 py-3 text-lg border-blue-600 text-blue-600 hover:bg-blue-50 rounded-xl">
+              <Button
+                variant="outline"
+                className="w-full sm:w-auto px-6 py-3 text-lg border-blue-600 text-blue-600 hover:bg-blue-50 rounded-xl"
+              >
                 Sign In
               </Button>
             </Link>
           </div>
-          
+
           {/* Feature Pills */}
           <div className="flex flex-wrap gap-2 pt-4">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm">
+              <div
+                key={index}
+                className="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm"
+              >
                 {feature.icon}
                 <span className="text-sm font-medium text-gray-700">{feature.text}</span>
               </div>
             ))}
           </div>
         </div>
-        
+
         {/* Right Side Image */}
         <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
           <div className="absolute -top-6 -right-6 bg-yellow-100 px-4 py-2 rounded-lg shadow-md rotate-3 z-10">
@@ -88,14 +93,32 @@ export default function HeroPage() {
           <h2 className="text-3xl font-bold text-gray-800">How It Works</h2>
           <p className="text-gray-600 mt-2">Three simple steps to your perfect resume</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { number: "01", title: "Input Your Details", description: "Fill in your work experience, skills, and education or import from LinkedIn." },
-            { number: "02", title: "Choose a Template", description: "Select from our beautiful, professionally-designed templates." },
-            { number: "03", title: "Download & Apply", description: "Get your polished resume in PDF, DOCX, or other formats instantly." }
+            {
+              number: "01",
+              title: "Input Your Details",
+              description:
+                "Fill in your work experience, skills, and education or import from LinkedIn.",
+            },
+            {
+              number: "02",
+              title: "Choose a Template",
+              description:
+                "Select from our beautiful, professionally-designed templates.",
+            },
+            {
+              number: "03",
+              title: "Download & Apply",
+              description:
+                "Get your polished resume in PDF, DOCX, or other formats instantly.",
+            },
           ].map((step, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition-shadow">
+            <div
+              key={index}
+              className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition-shadow"
+            >
               <div className="text-3xl font-bold text-blue-600 mb-3">{step.number}</div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
               <p className="text-gray-600">{step.description}</p>
@@ -110,7 +133,7 @@ export default function HeroPage() {
           <h2 className="text-3xl font-bold text-gray-800">What Our Users Say</h2>
           <p className="text-gray-600 mt-2">Join thousands of satisfied job seekers</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
@@ -146,3 +169,4 @@ export default function HeroPage() {
     </div>
   );
 }
+
